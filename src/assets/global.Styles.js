@@ -12,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
     --button-hover: #cbded3;
     --homepage: rgba(18, 20, 23, 0.7);
     --transition: 250ms ease-in-out;
+    --backgr-info: #f8f8f8;
 }
 body{
   margin: 0;
