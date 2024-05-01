@@ -19,8 +19,8 @@ import {
 import  Loader  from '../Loader/Loader';
 //import { useModal } from 'helpers/useModal';
 //import { ModalComponent } from 'components/Modal/Modal';
-import { RegisterForm } from '../AuthForms/RegisterForm';
-import { Login } from '../AuthForms/LoginForm';
+//import { RegisterForm } from '../AuthForms/RegisterForm';
+//import { Login } from '../AuthForms/LoginForm';
 //import { auth } from 'config/firebase-config';
 //import { signOut } from 'firebase/auth';
 import { useDispatch, useSelector } from 'react-redux';

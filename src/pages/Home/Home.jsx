@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Container } from "assets/global.Styles";
 import { useNavigate } from "react-router-dom";
-import { Section, WrapperImg, Item, Number, Name, WrapperInfo, ImgGirl, ImgPc, WrapperList, Info, Title, Description, Button } from "./Home.styled";
+import { Section, WrapperImg, Item, Number, Name, WrapperInfo, ImgGirl, WrapperList, Info, Title, Description, Button } from "./Home.styled";
 import girlpink  from "../../assets/img/girlpink.png";
 import girlpeach from "../../assets/img/girlpeach.png";
 import girlgray from "../../assets/img/girlgray.png";
