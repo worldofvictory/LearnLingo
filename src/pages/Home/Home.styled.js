@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
-  padding-top: 20px;
+  padding-top: 15px;
   padding-bottom: 32px;
 `;
 export const WrapperList = styled.div`
@@ -30,7 +30,7 @@ margin-bottom: 32px;
 & span {
     font-weight: 400;
     border-radius: 8px;
-    background: var(--button-hover);
+    background-color: ${({ theme }) => theme.colors.accent};
     display: inline-block;
     font-style: italic;
     padding: 0 8px;
@@ -46,28 +46,28 @@ width: 471px;
 export const Button = styled.button`
   cursor: pointer;
   border-radius: 12px;
-  background-color: var(--button);
+  background-color: ${({ theme }) => theme.colors.buttonBgColor};
   border: none;
-  padding: 16px 88px;
+  padding:  16px 88px;
   max-width: 267px;
   font-size: 18px;
   font-weight: 700;
   line-height: 1.55;
-  transition: background-color var(--transition);
+  transition: background-color ${({ theme }) => theme.animation.transition};
 
   &:hover,
   :focus {
-    background-color: var(--button-hover);
+     background-color: ${({ theme }) => theme.colors.hover};
   }
 `;
 
 export const WrapperImg = styled.div`
 position: relative;
   width: 568px;
-  max-width: 100%;
+  /*max-width: 100%;*/
   height: 530px;
   border-radius: 30px;
-  background: var(--button-hover);
+  /*background: var(--button-hover);*/
   overflow: hidden;
 `;
 export const ImgGirl = styled.img`
@@ -75,12 +75,7 @@ export const ImgGirl = styled.img`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -55%);
-`;
-export const ImgPc = styled.img`
- position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  padding-top: 60px;
 `;
 export const Info = styled.ul`
  min-height: 116px;
@@ -89,7 +84,7 @@ export const Info = styled.ul`
  row-gap: 20px;
  justify-content: center;
  border-radius: 30px;
- border: 4px dashed var(--button);
+ border: 4px dashed ${({ theme }) => theme.colors.border};
  flex-wrap: wrap;
  padding: 40px 0;
 `;

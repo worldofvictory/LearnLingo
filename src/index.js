@@ -11,8 +11,10 @@ root.render(
   <React.StrictMode>
     
     <BrowserRouter basename="/LearnLingo">
+      <Provider store={store}>
       <GlobalStyle />
-          <App />  
+        <App />  
+        </Provider>
         </BrowserRouter>
         
   </React.StrictMode>

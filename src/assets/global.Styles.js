@@ -13,12 +13,19 @@ export const GlobalStyle = createGlobalStyle`
     --homepage: rgba(18, 20, 23, 0.7);
     --transition: 250ms ease-in-out;
     --backgr-info: #f8f8f8;
+    --hoverBt: #fbe9ba;
+    --active-color: #F4C550;
 }
 body{
   margin: 0;
   font-family: 'Roboto', sans-serif;
   background-color: #fff;
   color: #121417;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 p,
 h1,
