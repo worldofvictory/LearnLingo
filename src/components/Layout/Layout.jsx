@@ -1,4 +1,4 @@
-import { Container } from '../../assets/global.Styles';
+//import { Container } from '../../assets/global.Styles';
 import { Outlet } from 'react-router-dom';
 import { FiLogIn } from 'react-icons/fi';
 import { Suspense, useEffect, useState } from 'react';
@@ -17,26 +17,47 @@ import {
   WrapperLogo,
 } from './Layout.styled';
 import  Loader  from '../Loader/Loader';
-//import { useModal } from 'helpers/useModal';
-//import { ModalComponent } from 'components/Modal/Modal';
-//import { RegisterForm } from '../AuthForms/RegisterForm';
-//import { Login } from '../AuthForms/LoginForm';
-//import { auth } from 'config/firebase-config';
-//import { signOut } from 'firebase/auth';
+import { useModal } from '../Modal/useModal';
+import { ModalComponent } from '../../components/Modal/Modal';
+import { RegisterForm } from '../AuthForms/RegisterForm';
+import { Login } from '../AuthForms/LoginForm';
+import { auth } from '../../firebase/firebase';
+import { signOut } from 'firebase/auth';
 import { useDispatch, useSelector } from 'react-redux';
-//import { deleteToken } from 'redux/sliceAuth';
+import { deleteToken } from '../../redux/SliceAuth';
 
 const Layout = () => {
+  const { isOpen, openModal, closeModal } = useModal();
   const [user, setUser] = useState(null);
   const authUser = useSelector(state => state.authUser.token);
   const dispatch = useDispatch();
 
-  
+  const clickLogOut = async () => {
+    try {
+      await signOut(auth);
+      setUser(null);
+
+      dispatch(deleteToken());
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  useEffect(() => {
+    auth.onAuthStateChanged(maybeUser => {
+      const user = auth.currentUser;
+
+      if (authUser || user) {
+        return setUser(maybeUser);
+      }
+      return;
+    });
+  }, [authUser]);
 
   return (
     <>
       <Header>
-        <Container>
+       
           <HeaderContainer>
             <WrapperLogo>
               <ImgLogo
@@ -67,7 +88,7 @@ const Layout = () => {
             {!authUser && (
               <WrapperAut>
                 <li>
-                  <ButtonLogin type="button" >
+                  <ButtonLogin type="button" onClick={() => openModal('login')}>
                     <span>
                       <FiLogIn />
                     </span>
@@ -77,6 +98,7 @@ const Layout = () => {
                 <li>
                   <ButtonRegister
                     type="button"
+                    onClick={() => openModal('register')}
                   >
                     Register
                   </ButtonRegister>
@@ -84,12 +106,22 @@ const Layout = () => {
               </WrapperAut>
             )}
             {authUser && user && (
-              <ButtonRegister type="button" >
+              <ButtonRegister type="button" onClick={clickLogOut}>
                 Log out
               </ButtonRegister>
             )}
           </HeaderContainer>
-        </Container>
+        
+        {isOpen.open && isOpen.name === 'login' && (
+          <ModalComponent onClose={closeModal}>
+            <Login onClose={closeModal} />
+          </ModalComponent>
+        )}
+        {isOpen.open && isOpen.name === 'register' && (
+          <ModalComponent onClose={closeModal}>
+            <RegisterForm onClose={closeModal} />
+          </ModalComponent>
+        )}
       </Header>
       <main>
         <Suspense fallback={<Loader />}>
@@ -99,5 +131,6 @@ const Layout = () => {
     </>
   );
 };
+
 
 export default Layout;

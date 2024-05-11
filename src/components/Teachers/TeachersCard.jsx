@@ -14,36 +14,56 @@ import {
 import { Avatar } from '@mui/material';
 import { useModal } from '../Modal/useModal';
 import { ModalComponent } from '../Modal/Modal';
-//import { BookLesson } from 'components/FormBookLesson/BookLesson';
+import { BookLesson } from '../BookTrial/BookTrial';
 import { useSelector } from 'react-redux';
-import { database } from '../../firebase/firebase';
-//import { useFavorite } from 'helpers/favorite';
-//import { StyledBadge } from './StyledBadge';
+import { auth, database } from '../../firebase/firebase';
+import { useFavorite } from './Favorite';
+import { StyledBadge } from './StyledBadge';
 import { ReviewerComponent } from './Rewiev';
 import { AboutTeacher } from './AboutTeacher';
-import { indexedDBLocalPersistence } from 'firebase/auth';
 //import { NotAuth } from './NotAuth';
 
 export const TeachersCard = ({ item }) => {
   const [visibility, setVisibility] = useState({});
   const [teacher, setTeacher] = useState();
   const { isOpen, openModal, closeModal } = useModal();
-  //const authUser = useSelector(state => state.authUser.token);
-  //const favorite = useFavorite(database);
+  const authUser = useSelector(state => state.authUser.token);
+  const favorite = useFavorite(database);
 
   const onClickModal = id => {
-    const detailsTeacher = item.find(teachers => teacher.id === id);
+    const detailsTeacher = item.find(teacher => teacher.id === id);
     setTeacher(detailsTeacher);
     openModal('bookLesson');
 
     setVisibility({ ...visibility, [id]: false });
   };
 
-  
+  const deleteFavorite = id => {
+    const favRef = ref(database, `/favorite/${auth.currentUser.uid}/${id}`);
+    return remove(favRef);
+  };
 
-  
+  const addFavorite = id => {
+    const favoriteTeacher = item.find(teacher => teacher.id === id);
 
-  
+    const userRef = ref(database, `/favorite/${auth.currentUser.uid}/${id}`);
+
+    set(userRef, favoriteTeacher);
+  };
+
+  const handelClick = id => {
+    if (!authUser) {
+      return openModal('notAuth');
+    }
+
+    const isFavorite = favorite.find(item => item.id === id);
+
+    if (isFavorite) {
+      return deleteFavorite(id);
+    } else {
+      return addFavorite(id);
+    }
+  };
 
   return (
     <>
@@ -67,7 +87,11 @@ export const TeachersCard = ({ item }) => {
             return (
               <ItemTeacher key={id}>
                 <WrapperImg>
-                  
+                  <StyledBadge
+                    overlap="circular"
+                    anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+                    variant="dot"
+                  >
                     <Avatar
                       src={avatar_url}
                       alt={experience}
@@ -78,17 +102,17 @@ export const TeachersCard = ({ item }) => {
                         height: '100%',
                       }}
                     />
-                  
+                  </StyledBadge>
                 </WrapperImg>
                 <Wrapper>
                   <AboutTeacher
                     lessons_done={lessons_done}
                     rating={rating}
                     price_per_hour={price_per_hour}
-                   
+                    favorite={favorite}
                     id={id}
-                   
-                    
+                    authUser={authUser}
+                    handelClick={handelClick}
                     name={name}
                     surname={surname}
                     languages={languages}
@@ -134,14 +158,17 @@ export const TeachersCard = ({ item }) => {
       </ListTeacher>
       {isOpen.open && isOpen.name === 'bookLesson' && (
         <ModalComponent onClose={closeModal}>
-          
+          <BookLesson teacher={teacher} />
         </ModalComponent>
       )}
       {isOpen.open && isOpen.name === 'notAuth' && (
         <ModalComponent onClose={closeModal}>
-        
+         
         </ModalComponent>
       )}
     </>
   );
 };
+
+
+

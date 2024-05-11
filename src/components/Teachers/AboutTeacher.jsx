@@ -14,11 +14,14 @@ import {
   WrapperTeacher,
 } from './TeachersCard.styled';
 
+
 export const AboutTeacher = ({
   lessons_done,
   rating,
   price_per_hour,
+  favorite,
   id,
+  authUser,
   handelClick,
   name,
   surname,
@@ -57,7 +60,13 @@ export const AboutTeacher = ({
             </DetailsLessons>
           </ItemLessons>
           <ItemLessons>
-            
+            <FavoriteButton type="button" onClick={() => handelClick(id)}>
+              {favorite.find(item => item.id === id) && authUser ? (
+                <FaHeart color="#F4C550" />
+              ) : (
+                <FaRegHeart />
+              )}
+            </FavoriteButton>
           </ItemLessons>
         </ListLessons>
       </WrapperLessons>
@@ -87,3 +96,4 @@ export const AboutTeacher = ({
     </>
   );
 };
+

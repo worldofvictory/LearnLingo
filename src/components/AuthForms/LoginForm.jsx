@@ -1,6 +1,10 @@
-//import { useState } from 'react';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Formik } from 'formik';
+import { auth } from '../../firebase/firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { FiEyeOff, FiEye } from 'react-icons/fi';
+import { toast } from 'react-toastify';
 import {
   Description,
   ErrorMessage,
@@ -14,14 +18,32 @@ import {
   PasswordWrapper,
 } from './Auth.styled';
 import Schemas from "../Schemas/Schemas";
+import { addToken } from '../../redux/SliceAuth';
 
-export const Login = () => {
-const initialValues = {
-    name: '',
-    email: '',
-    password: '',
-    };
-    return (
+export const Login = ({ onClose }) => {
+  const [visibility, setVisibility] = useState(false);
+  const dispatch = useDispatch();
+
+  const handelSubmit = async values => {
+    const { email, password } = values;
+    try {
+      const credentials = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      dispatch(addToken(credentials.user.accessToken));
+      onClose();
+      return credentials.user;
+    } catch (error) {
+      toast.error(
+        'Oops something went wrong',
+      );
+    }
+  };
+
+  return (
     <FormWrapper>
       <Title>Log In</Title>
       <Description>
@@ -29,8 +51,12 @@ const initialValues = {
         continue your search for an teacher.
       </Description>
       <Formik
-        initialValues={initialValues}
-        validationSchema={Schemas} 
+        initialValues={{
+          email: '',
+          password: '',
+        }}
+        validationSchema={Schemas}
+        onSubmit={handelSubmit}
       >
         {({
           errors,
@@ -59,6 +85,7 @@ const initialValues = {
               <PasswordWrapper>
                 <Input
                   name="password"
+                  type={visibility ? 'text' : 'password'}
                   placeholder="Password"
                   onBlur={handleBlur}
                   onChange={handleChange}
@@ -66,8 +93,9 @@ const initialValues = {
                 />
                 <PasswordVisibility
                   type="button"
+                  onClick={() => setVisibility(!visibility)}
                 >
-                  <FiEyeOff /> : <FiEye />
+                  {visibility ? <FiEyeOff /> : <FiEye />}
                 </PasswordVisibility>
               </PasswordWrapper>
               {errors.password && touched.password ? (
@@ -82,4 +110,4 @@ const initialValues = {
       </Formik>
     </FormWrapper>
   );
- }
+};

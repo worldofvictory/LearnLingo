@@ -3,7 +3,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { ButtonClose, Modal, Overlay } from './Modal.styled';
 import { createPortal } from 'react-dom';
 
-const modalRoot = document.getElementById('modal');
+
 
 export const ModalComponent = ({ children, onClose }) => {
   const onClickOverlay = e => {
@@ -11,6 +11,9 @@ export const ModalComponent = ({ children, onClose }) => {
       onClose();
     }
   };
+
+
+
 
   useEffect(() => {
     const handleKeyDown = e => {
@@ -34,6 +37,6 @@ export const ModalComponent = ({ children, onClose }) => {
         {children}
       </Modal>
     </Overlay>,
-    modalRoot
+   document.getElementById('modal')
   );
-};
+}

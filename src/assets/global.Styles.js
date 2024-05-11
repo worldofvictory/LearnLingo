@@ -1,4 +1,5 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
+import  styled from 'styled-components';
 import 'modern-normalize/modern-normalize.css';
 import RobotoBlack from './fonts/Roboto-Black.ttf';
 import RobotoBold from './fonts/Roboto-Bold.ttf';

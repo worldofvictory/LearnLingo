@@ -1,15 +1,39 @@
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addToken } from '../../redux/SliceAuth';
 import { FiEyeOff, FiEye } from 'react-icons/fi';
 import Schemas from "../Schemas/Schemas";
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../firebase/firebase';
 import { Formik } from 'formik';
 import { FormWrapper, Title, Description, ErrorMessage, Input, InputWrapper, Form, PasswordWrapper, PasswordVisibility, Button  } from "./Auth.styled";
-export const RegisterForm = () => { 
+export const RegisterForm = ({ onClose }) => {
+  const [visibility, setVisibility] = useState(false);
+  const dispatch = useDispatch();
 
-const initialValues = {
-    name: '',
-    email: '',
-    password: '',
-};
-    return (
+  const handelSubmit = async values => {
+    const { email, password } = values;
+    try {
+      const result = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      // await addDoc(collection(db, 'users'), {
+      //   name,
+      //   email,
+      //   id: result.user.uid,
+      // });
+
+      dispatch(addToken(result.user.accessToken));
+      onClose();
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  return (
     <FormWrapper>
       <Title>Registration</Title>
       <Description>
@@ -17,8 +41,13 @@ const initialValues = {
         need some information. Please provide us with the following information
       </Description>
       <Formik
-        initialValues={initialValues}
+        initialValues={{
+          name: '',
+          email: '',
+          password: '',
+        }}
         validationSchema={Schemas}
+        onSubmit={handelSubmit}
       >
         {({
           errors,
@@ -60,6 +89,7 @@ const initialValues = {
               <PasswordWrapper>
                 <Input
                   name="password"
+                  type={visibility ? 'text' : 'password'}
                   placeholder="Password"
                   onBlur={handleBlur}
                   onChange={handleChange}
@@ -67,8 +97,9 @@ const initialValues = {
                 />
                 <PasswordVisibility
                   type="button"
+                  onClick={() => setVisibility(!visibility)}
                 >
-                   <FiEyeOff /> : <FiEye />
+                  {visibility ? <FiEye /> : <FiEyeOff />}
                 </PasswordVisibility>
               </PasswordWrapper>
               {errors.password && touched.password ? (
@@ -82,5 +113,5 @@ const initialValues = {
         )}
       </Formik>
     </FormWrapper>
-    );
-  };
+  );
+};
