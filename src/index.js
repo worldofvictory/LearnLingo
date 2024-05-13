@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter basename="/LearnLingo">
-   <PersistGate loading={<p>Loading...</p>} persistor={persistor}>
+      <PersistGate loading={<p>Loading...</p>} persistor={persistor}>
         <Provider store={store}>
           <GlobalStyle />
           <App />

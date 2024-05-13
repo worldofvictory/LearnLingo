@@ -61,6 +61,7 @@ export const RegisterForm = ({ onClose }) => {
           <Form onSubmit={handleSubmit}>
             <InputWrapper>
               <Input
+                id="name"
                 type="text"
                 name="name"
                 placeholder="Name"
@@ -74,6 +75,7 @@ export const RegisterForm = ({ onClose }) => {
             </InputWrapper>
             <InputWrapper>
               <Input
+                id="email"
                 type="email"
                 name="email"
                 placeholder="Email"
@@ -88,6 +90,7 @@ export const RegisterForm = ({ onClose }) => {
             <InputWrapper>
               <PasswordWrapper>
                 <Input
+                  id="password"
                   name="password"
                   type={visibility ? 'text' : 'password'}
                   placeholder="Password"

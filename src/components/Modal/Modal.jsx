@@ -4,16 +4,12 @@ import { ButtonClose, Modal, Overlay } from './Modal.styled';
 import { createPortal } from 'react-dom';
 
 
-
 export const ModalComponent = ({ children, onClose }) => {
   const onClickOverlay = e => {
     if (e.currentTarget === e.target) {
       onClose();
     }
   };
-
-
-
 
   useEffect(() => {
     const handleKeyDown = e => {
@@ -37,6 +33,9 @@ export const ModalComponent = ({ children, onClose }) => {
         {children}
       </Modal>
     </Overlay>,
-   document.getElementById('modal')
+    document.getElementById('modal')
   );
-}
+};
+
+  
+ 

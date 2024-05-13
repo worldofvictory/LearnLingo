@@ -21,7 +21,7 @@ import { useFavorite } from './Favorite';
 import { StyledBadge } from './StyledBadge';
 import { ReviewerComponent } from './Rewiev';
 import { AboutTeacher } from './AboutTeacher';
-//import { NotAuth } from './NotAuth';
+import { NotAuth } from './NotAuth';
 
 export const TeachersCard = ({ item }) => {
   const [visibility, setVisibility] = useState({});
@@ -110,7 +110,7 @@ export const TeachersCard = ({ item }) => {
                     rating={rating}
                     price_per_hour={price_per_hour}
                     favorite={favorite}
-                    id={id}
+                    key={id}
                     authUser={authUser}
                     handelClick={handelClick}
                     name={name}
@@ -136,9 +136,9 @@ export const TeachersCard = ({ item }) => {
                     />
                   )}
                   <ListLevels>
-                    {levels.map((i, index) => (
+                    {levels.map((i,  index ) => (
                       <ItemLevels key={index}>
-                        <p>{i}</p>
+                        <p key={id}>{i}</p>
                       </ItemLevels>
                     ))}
                   </ListLevels>
@@ -163,12 +163,9 @@ export const TeachersCard = ({ item }) => {
       )}
       {isOpen.open && isOpen.name === 'notAuth' && (
         <ModalComponent onClose={closeModal}>
-         
+          <NotAuth />
         </ModalComponent>
       )}
     </>
   );
 };
-
-
-

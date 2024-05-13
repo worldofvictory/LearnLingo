@@ -1,4 +1,4 @@
-//import { Container } from '../../assets/global.Styles';
+import { Container } from '../../assets/global.Styles';
 import { Outlet } from 'react-router-dom';
 import { FiLogIn } from 'react-icons/fi';
 import { Suspense, useEffect, useState } from 'react';
@@ -57,7 +57,7 @@ const Layout = () => {
   return (
     <>
       <Header>
-       
+        <Container>
           <HeaderContainer>
             <WrapperLogo>
               <ImgLogo
@@ -111,7 +111,7 @@ const Layout = () => {
               </ButtonRegister>
             )}
           </HeaderContainer>
-        
+        </Container>
         {isOpen.open && isOpen.name === 'login' && (
           <ModalComponent onClose={closeModal}>
             <Login onClose={closeModal} />
@@ -131,6 +131,5 @@ const Layout = () => {
     </>
   );
 };
-
 
 export default Layout;

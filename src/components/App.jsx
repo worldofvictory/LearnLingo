@@ -7,6 +7,7 @@ const Layout = lazy(() => import('./Layout/Layout'));
 const Home = lazy(() => import('../pages/Home/Home'));
 const Teachers = lazy(() => import('../pages/Teachers/Teachers'));
 const Favorite = lazy(() => import('../pages/Favorite/Favorite'));
+
 function App() {
   return (
     <>

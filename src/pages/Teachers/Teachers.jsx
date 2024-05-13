@@ -13,7 +13,7 @@ const TEACHERS_PER_PAGE = 4;
 
 const TeachersPage = () => {
   const [teachers, setTeachers] = useState([]);
- const filter = useSelector(state => state.filter.filterTeachers);
+  const filter = useSelector(state => state.filter.filterTeachers);
 
   const [count, setCount] = useState(TEACHERS_PER_PAGE);
   const dbRef = ref(database);

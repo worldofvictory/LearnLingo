@@ -5,6 +5,8 @@ import { Container } from '../../assets/global.Styles';
 import { useFavorite } from '../../components/Teachers/Favorite';
 import { Title } from './Favorite.styled';
 
+
+
 const FavoritePage = () => {
   const favorite = useFavorite(database);
 
