@@ -36,7 +36,7 @@ export const ButtonClose = styled.button`
   color: #121417;
   &:hover,
   :focus {
-    color: var(--active-button-background-color);
+    color: var(--hoverBt);
   }
 
   & svg {

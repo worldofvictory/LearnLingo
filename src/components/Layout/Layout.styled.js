@@ -19,17 +19,12 @@ export const WrapperLogo = styled.div`
   gap: 8px;
 `;
 
-export const ImgLogo = styled.img``;
-
 export const TitleLogo = styled.p`
-  color: var(--main-text-color);
   font-size: 20px;
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: -0.4px;
 `;
-
-export const Nav = styled.nav``;
 
 export const List = styled.ul`
   display: flex;
@@ -38,7 +33,6 @@ export const List = styled.ul`
 `;
 
 export const Navigate = styled(NavLink)`
-  color: var(--main-text-color);
   font-size: 16px;
   line-height: 1.25;
   transition: color var(--transition);
@@ -53,7 +47,7 @@ export const Navigate = styled(NavLink)`
   }
 `;
 
-export const WrapperAut = styled.ul`
+export const WrapperAuth = styled.ul`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -62,7 +56,6 @@ export const WrapperAut = styled.ul`
 
 export const ButtonLogin = styled.button`
   cursor: pointer;
-  color: var(--main-text-color);
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 700;
@@ -105,10 +98,9 @@ export const ButtonRegister = styled.button`
   color: #fff;
   white-space: nowrap;
 
-
   &:hover,
   :focus {
     background-color: var( --hoverBt);
-    color: var(--main-text-color);
   }
 `;
+export const Nav = styled.nav``;

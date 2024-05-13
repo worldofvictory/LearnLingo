@@ -15,14 +15,6 @@ export const Title = styled.p`
   margin-bottom: 8px;
 `;
 
-export const NotFound = styled.p`
-  margin-bottom: 32px;
-  color: #ca0000ba;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.5;
-`;
-
 export const Em = styled.em`
   font-style: normal;
 `;
@@ -47,4 +39,12 @@ export const Button = styled.button`
     width: 26px;
     height: 26px;
   }
+`;
+
+export const NotFound = styled.p`
+  margin-bottom: 32px;
+  color: #ca0000ba;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
 `;

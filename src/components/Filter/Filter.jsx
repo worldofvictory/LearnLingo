@@ -4,12 +4,12 @@ import { ref, query, orderByChild, onValue } from 'firebase/database';
 import { FormControl, MenuItem, Select, styled } from '@mui/material';
 import { TeachersCard } from '../Teachers/TeachersCard';
 import { database } from '../../firebase/firebase';
-//import { languages, levels, price } from 'helpers/optionsFilter';
 import { TiDelete } from 'react-icons/ti';
 import { addFilter, addFilterName, deleteFilter } from '../../redux/SliceFilter';
 import { Button, Em, NotFound, Title, Wrapper } from './Filter.styled';
 import { useLocation } from 'react-router-dom';
- const levels = [
+ 
+const levels = [
   'A1 Beginner',
   'A2 Elementary',
   'B1 Intermediate',
@@ -202,8 +202,7 @@ export const Filter = () => {
       </Wrapper>
       {filter.length === 0 && search && (
         <NotFound>
-          Oops, unfortunately, we did not find among our teachers according to
-          your criteria. You can choose from our list 😊
+          Oops... Unfortunately, we didn't find anything matching your request. Сhoose from our list 😊
         </NotFound>
       )}
       <TeachersCard item={filter} />

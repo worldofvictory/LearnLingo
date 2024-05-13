@@ -97,7 +97,7 @@ export const Login = ({ onClose }) => {
                   type="button"
                   onClick={() => setVisibility(!visibility)}
                 >
-                  {visibility ? <FiEyeOff /> : <FiEye />}
+                  {visibility ? <FiEye /> : <FiEyeOff />}
                 </PasswordVisibility>
               </PasswordWrapper>
               {errors.password && touched.password ? (

@@ -10,7 +10,7 @@ import {
 } from './BookTrial.styled';
 import { FormComponent } from './BookForm';
 
-export const BookLesson = ({  teacher}) => {
+export const BookLesson = ({teacher}) => {
   return (
     <Section>
       <Title>Book trial lesson</Title>
@@ -20,6 +20,7 @@ export const BookLesson = ({  teacher}) => {
       </Description>
       <WrapperTeacher>
         <Image
+          id={teacher.id}
           src={teacher.avatar_url}
           alt={teacher.name}
           width="44"
@@ -27,10 +28,10 @@ export const BookLesson = ({  teacher}) => {
         />
         <WrapperName>
           <TitleTeacher>Your teacher</TitleTeacher>
-          <NameTeacher>{teacher.name}</NameTeacher>
+          <NameTeacher>{teacher?.name}</NameTeacher>
         </WrapperName>
       </WrapperTeacher>
-      <FormComponent languages={teacher.languages} />
+      <FormComponent languages={teacher?.languages} />
     </Section>
   );
 };

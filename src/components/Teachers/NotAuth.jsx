@@ -4,8 +4,7 @@ export const NotAuth = () => {
   return (
     <NotAuthSection>
       <TitleNotAuth>
-        Oops, you are not registered yet. Register and you will have access to
-        more functions of using the site.
+        Oops, you are not register. If you want to use this option you are need to register, please!
       </TitleNotAuth>
     </NotAuthSection>
   );

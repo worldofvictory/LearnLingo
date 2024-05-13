@@ -1,13 +1,6 @@
 import styled from 'styled-components';
 
-export const FormWrapper = styled.div`
-  width: 566px;
-  max-width: 100%;
-  padding: 64px;
-`;
-
 export const Title = styled.h3`
-  color: var(--main-text-color);
   font-size: 40px;
   font-weight: 500;
   line-height: 1.2;
@@ -30,9 +23,8 @@ export const Form = styled.form`
 export const Input = styled.input`
   border-radius: 12px;
   width: 100%;
-  border: 1px solid rgba(18, 20, 23, 0.1);
+  border: 1px solid var( --homepage);
   padding: 16px 18px;
-  color: var(--main-text-color);
   font-size: 16px;
   font-weight: 400;
   line-height: 1.37;
@@ -40,11 +32,8 @@ export const Input = styled.input`
   outline: none;
   transition: border var(--transition);
 
-  &::placeholder {
-    color: var(--main-text-color);
-  }
   &:focus {
-    border: 1px solid var(--active-button-background-color);
+    border: 1px solid var(--hoverBt);
   }
 `;
 
@@ -73,7 +62,6 @@ export const PasswordVisibility = styled.button`
   top: 50%;
   right: 18px;
   transform: translateY(-50%);
-  color: var(--main-text-color);
   transition: color var(--transition);
   background-color: transparent;
   border: none;
@@ -87,13 +75,11 @@ export const PasswordVisibility = styled.button`
 export const Button = styled.button`
   cursor: pointer;
   display: block;
-  color: var(--main-text-color);
   font-size: 18px;
   font-weight: 700;
   line-height: 28px;
-
   border-radius: 12px;
-  background-color: var(--button-background-color);
+  background-color: var(--active-color);
   border: none;
   width: 100%;
   padding: 16px 0;
@@ -102,6 +88,11 @@ export const Button = styled.button`
 
   &:hover,
   :focus {
-    background-color: var(--active-button-background-color);
+    background-color: var(--hoverBt);
   }
+`;
+export const FormWrapper = styled.div`
+  width: 566px;
+  max-width: 100%;
+  padding: 64px;
 `;

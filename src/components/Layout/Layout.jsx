@@ -8,12 +8,11 @@ import {
   ButtonRegister,
   Header,
   HeaderContainer,
-  ImgLogo,
   List,
   Nav,
   Navigate,
   TitleLogo,
-  WrapperAut,
+  WrapperAuth,
   WrapperLogo,
 } from './Layout.styled';
 import  Loader  from '../Loader/Loader';
@@ -60,7 +59,7 @@ const Layout = () => {
         <Container>
           <HeaderContainer>
             <WrapperLogo>
-              <ImgLogo
+              <img
                 src={ukraine}
                 alt="Flag Ukraine"
                 width="28"
@@ -84,9 +83,9 @@ const Layout = () => {
                   </li>
                 )}
               </List>
-            </Nav>
+              </Nav>
             {!authUser && (
-              <WrapperAut>
+              <WrapperAuth>
                 <li>
                   <ButtonLogin type="button" onClick={() => openModal('login')}>
                     <span>
@@ -103,7 +102,7 @@ const Layout = () => {
                     Register
                   </ButtonRegister>
                 </li>
-              </WrapperAut>
+              </WrapperAuth>
             )}
             {authUser && user && (
               <ButtonRegister type="button" onClick={clickLogOut}>

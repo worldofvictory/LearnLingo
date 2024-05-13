@@ -4,7 +4,6 @@ export const Section = styled.div`
   width: 400px;
   max-width: 100%;
   padding: 24px;
-
   max-height: 650px;
   overflow-y: scroll;
 
@@ -24,7 +23,6 @@ export const Section = styled.div`
 
 export const Title = styled.h3`
   margin-bottom: 20px;
-  color: var(--main-text-color);
   font-size: 40px;
   font-weight: 500;
   line-height: 1.2;
@@ -67,7 +65,6 @@ export const NameTeacher = styled.p`
 `;
 
 export const FormTitle = styled.p`
-  color: var(--main-text-color);
   font-size: 24px;
   font-weight: 500;
   line-height: 1.33;
@@ -87,19 +84,13 @@ export const Form = styled.form`
     border: 1px solid rgba(18, 20, 23, 0.1);
     outline: none;
     padding: 16px 18px;
-
-    color: var(--main-text-color);
     font-size: 16px;
     font-weight: 400;
     line-height: 1.37;
     transition: border var(--transition);
 
-    &::placeholder {
-      color: var(--main-text-color);
-    }
-
     &:focus {
-      border: 1px solid var(--active-button-background-color);
+      border: 1px solid var(--hoverBt);
     }
   }
 `;
@@ -124,12 +115,9 @@ export const Button = styled.button`
   margin-top: 40px;
   width: 100%;
   border-radius: 12px;
-  background-color: var(--button-background-color);
+  background-color: var(--active-color);
   border: none;
   padding: 16px 0;
-
-  color: var(--main-text-color);
-
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
   font-weight: 700;
@@ -138,6 +126,6 @@ export const Button = styled.button`
 
   &:hover,
   :focus {
-    background-color: var(--active-button-background-color);
+    background-color: var(--hoverBt);
   }
 `;
