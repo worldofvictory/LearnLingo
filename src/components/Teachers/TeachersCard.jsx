@@ -29,8 +29,8 @@ export const TeachersCard = ({ item }) => {
   const { isOpen, openModal, closeModal } = useModal();
   const authUser = useSelector(state => state.authUser.token);
   const favorite = useFavorite(database);
-
-  const onClickModal = id => {
+ 
+   const onClickModal = id => {
     const detailsTeacher = item.find(teacher => teacher.id === id);
     setTeacher(detailsTeacher);
     openModal('bookLesson');
@@ -39,14 +39,14 @@ export const TeachersCard = ({ item }) => {
   };
 
   const deleteFavorite = id => {
-    const favRef = ref(database, `/favorite/${auth.currentUser.uid}/${id}`);
+    const favRef = ref(database, `/favorite/${auth.currentUser.uid}/${teacher.id}`);
     return remove(favRef);
   };
 
   const addFavorite = id => {
     const favoriteTeacher = item.find(teacher => teacher.id === id);
 
-    const userRef = ref(database, `/favorite/${auth.currentUser.uid}/${id}`);
+    const userRef = ref(database, `/favorite/${auth.currentUser.uid}/${teacher.id}`);
 
     set(userRef, favoriteTeacher);
   };
@@ -77,7 +77,7 @@ export const TeachersCard = ({ item }) => {
             rating,
             reviews,
             price_per_hour,
-            lessons_done,
+            lessons_done, 
             avatar_url,
             lesson_info,
             conditions,
@@ -110,7 +110,7 @@ export const TeachersCard = ({ item }) => {
                     rating={rating}
                     price_per_hour={price_per_hour}
                     favorite={favorite}
-                    key={id}
+                    id={id}
                     authUser={authUser}
                     handelClick={handelClick}
                     name={name}
@@ -136,9 +136,9 @@ export const TeachersCard = ({ item }) => {
                     />
                   )}
                   <ListLevels>
-                    {levels.map((i,  index ) => (
+                    {levels.map((i, index) => (
                       <ItemLevels key={index}>
-                        <p key={id}>{i}</p>
+                        <p>{i}</p>
                       </ItemLevels>
                     ))}
                   </ListLevels>

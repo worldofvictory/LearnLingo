@@ -3,13 +3,14 @@ import {
   Reviewer,
   ReviewerComment,
   ReviewerExperience,
-  ReviewerImg,
+  Avatar,
   ReviewerItem,
   ReviewerList,
   ReviewerName,
   ReviewerRating,
   ReviewerWrapper,
 } from './TeachersCard.styled';
+
 
 export const ReviewerComponent = ({ experience, reviews }) => {
   return (
@@ -19,13 +20,9 @@ export const ReviewerComponent = ({ experience, reviews }) => {
         {reviews.map(({ reviewer_name, reviewer_rating, comment }, index) => (
           <ReviewerItem key={index}>
             <ReviewerWrapper>
-              <ReviewerImg
-                src="https://cdn-icons-png.flaticon.com/512/878/878516.png"
-                alt="reviews"
-                width="44"
-                height="44"
-                loading="lazy"
-              />
+              <Avatar> 
+                {reviewer_name.slice(0, 1)}
+              </Avatar>
               <div>
                 <ReviewerName>{reviewer_name}</ReviewerName>
                 <ReviewerRating>

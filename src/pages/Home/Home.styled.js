@@ -64,10 +64,8 @@ export const Button = styled.button`
 export const WrapperImg = styled.div`
 position: relative;
   width: 568px;
-  /*max-width: 100%;*/
   height: 530px;
   border-radius: 30px;
-  /*background: var(--button-hover);*/
   overflow: hidden;
 `;
 export const ImgGirl = styled.img`

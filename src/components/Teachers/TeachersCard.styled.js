@@ -16,7 +16,6 @@ export const ItemTeacher = styled.li`
   background-color: #fff;
   border-radius: 24px;
   padding: 24px;
-
   display: flex;
   gap: 48px;
   align-items: flex-start;
@@ -32,7 +31,7 @@ export const ItemTeacher = styled.li`
 
 export const WrapperImg = styled.div`
   border-radius: 100px;
-  border: 3px solid #fbe9ba;
+  border: 3px solid var(--hoverBt);
   padding: 12px;
   background: #fff;
   overflow: hidden;
@@ -53,7 +52,7 @@ export const WrapperLessons = styled.div`
 `;
 
 export const Language = styled.p`
-  color: var(--color-text-content);
+  color: #8A8A89;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -100,7 +99,6 @@ export const NameTeacher = styled.p`
   font-size: 24px;
   font-weight: 500;
   line-height: 1;
-
   margin-bottom: 32px;
 `;
 
@@ -118,19 +116,13 @@ export const TitleDetailsTeacher = styled.p`
   font-weight: 500;
   line-height: 1;
 
-  & span {
-    color: var(--color-text-content);
-  }
-
   & .languages {
-    color: var(--main-text-color);
     text-decoration-line: underline;
   }
 `;
 
 export const ButtonRM = styled.button`
   cursor: pointer;
-  color: var(--main-text-color);
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -152,11 +144,9 @@ export const ButtonRM = styled.button`
 export const Reviewer = styled.div``;
 
 export const ReviewerExperience = styled.p`
-  color: var(--main-text-color);
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
-
   margin-top: 16px;
   margin-bottom: 32px;
 `;
@@ -177,19 +167,27 @@ export const ReviewerWrapper = styled.div`
   margin-bottom: 16px;
 `;
 
-export const ReviewerImg = styled.img`
-  border-radius: 100px;
+export const Avatar = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--hoverBt);
 `;
 
+
 export const ReviewerName = styled.p`
-  color: var(--color-text-content);
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
 `;
 
 export const ReviewerRating = styled.p`
-  color: var(--main-text-color);
   font-size: 14px;
   font-weight: 500;
   line-height: 1.28;
@@ -216,7 +214,7 @@ export const ItemLevels = styled.li`
   padding: 8px 12px;
   border-radius: 35px;
   background-color: transparent;
-  border: 1px solid rgba(18, 20, 23, 0.2);
+  border: 1px solid var( --homepage);
 
   &:first-child {
     background: #f4c550;
@@ -224,7 +222,6 @@ export const ItemLevels = styled.li`
   }
 
   & p {
-    color: var(--main-text-color);
     font-size: 14px;
     font-weight: 500;
     line-height: 1.14;
@@ -234,7 +231,6 @@ export const ItemLevels = styled.li`
 export const ButtonBookLesson = styled.button`
   cursor: pointer;
   margin-top: 32px;
-  color: var(--main-text-color);
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
   font-weight: 700;
@@ -279,7 +275,6 @@ export const NotAuthSection = styled.div`
 
 export const TitleNotAuth = styled.p`
   margin-top: 40px;
-  color: var(--main-text-color);
   font-size: 16px;
   font-weight: 500;
   line-height: 1;
