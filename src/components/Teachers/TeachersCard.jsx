@@ -29,8 +29,8 @@ export const TeachersCard = ({ item }) => {
   const { isOpen, openModal, closeModal } = useModal();
   const authUser = useSelector(state => state.authUser.token);
   const favorite = useFavorite(database);
- 
-   const onClickModal = id => {
+
+  const onClickModal = id => {
     const detailsTeacher = item.find(teacher => teacher.id === id);
     setTeacher(detailsTeacher);
     openModal('bookLesson');
@@ -39,14 +39,14 @@ export const TeachersCard = ({ item }) => {
   };
 
   const deleteFavorite = id => {
-    const favRef = ref(database, `/favorite/${auth.currentUser.uid}/${teacher.id}`);
+    const favRef = ref(database, `/favorite/${auth.currentUser.uid}/${id}`);
     return remove(favRef);
   };
 
   const addFavorite = id => {
     const favoriteTeacher = item.find(teacher => teacher.id === id);
 
-    const userRef = ref(database, `/favorite/${auth.currentUser.uid}/${teacher.id}`);
+    const userRef = ref(database, `/favorite/${auth.currentUser.uid}/${id}`);
 
     set(userRef, favoriteTeacher);
   };
@@ -77,7 +77,7 @@ export const TeachersCard = ({ item }) => {
             rating,
             reviews,
             price_per_hour,
-            lessons_done, 
+            lessons_done,
             avatar_url,
             lesson_info,
             conditions,

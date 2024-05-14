@@ -61,7 +61,7 @@ const Layout = () => {
             <WrapperLogo>
               <img
                 src={ukraine}
-                alt="Flag Ukraine"
+                alt="Ukraine"
                 width="28"
                 height="28"
               />
@@ -83,7 +83,7 @@ const Layout = () => {
                   </li>
                 )}
               </List>
-              </Nav>
+            </Nav>
             {!authUser && (
               <WrapperAuth>
                 <li>
