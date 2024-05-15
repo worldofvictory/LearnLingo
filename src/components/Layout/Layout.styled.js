@@ -53,6 +53,7 @@ export const WrapperAuth = styled.ul`
   flex-wrap: wrap;
   align-items: center;
   gap: 16px;
+  margin-left: 500px;
 `;
 
 export const ButtonLogin = styled.button`

@@ -62,7 +62,7 @@ export const AboutTeacher = ({
           <ItemLessons>
             <FavoriteButton type="button" onClick={() => handelClick(id)}>
               {favorite.find(item => item.id === id) && authUser ? (
-                <FaHeart color="#F4C550" />
+                <FaHeart color="#fbe9ba" />
               ) : (
                 <FaRegHeart />
               )}
