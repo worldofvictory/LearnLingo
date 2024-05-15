@@ -38,7 +38,7 @@ export const TeachersCard = ({ item }) => {
     setVisibility({ ...visibility, [id]: false });
   };
 
- const deleteFavorite = id => {
+  const deleteFavorite = id => {
     const favRef = ref(database, `/favorite/${auth.currentUser.uid}/${id}`);
     return remove(favRef);
   };
@@ -64,6 +64,7 @@ export const TeachersCard = ({ item }) => {
       return addFavorite(id);
     }
   };
+
   return (
     <>
       <ListTeacher>
@@ -84,7 +85,7 @@ export const TeachersCard = ({ item }) => {
             id,
           }) => {
             return (
-              <ItemTeacher key={item.id}>
+              <ItemTeacher key={id}>
                 <WrapperImg>
                   <StyledBadge
                     overlap="circular"
@@ -109,7 +110,6 @@ export const TeachersCard = ({ item }) => {
                     rating={rating}
                     price_per_hour={price_per_hour}
                     favorite={favorite}
-                    id={item.id}
                     authUser={authUser}
                     handelClick={handelClick}
                     name={name}
