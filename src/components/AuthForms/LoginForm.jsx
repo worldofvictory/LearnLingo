@@ -71,7 +71,6 @@ export const Login = ({ onClose }) => {
             <InputWrapper>
               <Input
                 type="email"
-                id="email"
                 name="email"
                 placeholder="Email"
                 onBlur={handleBlur}
@@ -89,7 +88,6 @@ export const Login = ({ onClose }) => {
                   type={visibility ? 'text' : 'password'}
                   placeholder="Password"
                   onBlur={handleBlur}
-                  id="password"
                   onChange={handleChange}
                   value={values.password}
                 />

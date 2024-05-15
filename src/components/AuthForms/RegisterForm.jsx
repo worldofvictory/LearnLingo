@@ -19,11 +19,7 @@ export const RegisterForm = ({ onClose }) => {
         email,
         password
       );
-      // await addDoc(collection(db, 'users'), {
-      //   name,
-      //   email,
-      //   id: result.user.uid,
-      // });
+      
 
       dispatch(addToken(result.user.accessToken));
       onClose();

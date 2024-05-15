@@ -8,6 +8,7 @@ import { Button } from './Teacher.styled';
 import { Filter } from 'components/Filter/Filter';
 import { useSelector } from 'react-redux';
 
+
 const TEACHERS_COLLECTION = 'teachers';
 const TEACHERS_PER_PAGE = 4;
 

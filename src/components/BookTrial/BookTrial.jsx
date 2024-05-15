@@ -20,9 +20,8 @@ export const BookLesson = ({teacher}) => {
       </Description>
       <WrapperTeacher>
         <Image
-          id={teacher.id}
-          src={teacher.avatar_url}
-          alt={teacher.name}
+          src={teacher?.avatar_url}
+          alt={teacher?.name}
           width="44"
           height="44"
         />

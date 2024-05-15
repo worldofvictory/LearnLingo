@@ -15,7 +15,7 @@ import {
   WrapperAuth,
   WrapperLogo,
 } from './Layout.styled';
-import  Loader  from '../Loader/Loader';
+import  Loaders  from '../Loader/Loader';
 import { useModal } from '../Modal/useModal';
 import { ModalComponent } from '../../components/Modal/Modal';
 import { RegisterForm } from '../AuthForms/RegisterForm';
@@ -24,6 +24,7 @@ import { auth } from '../../firebase/firebase';
 import { signOut } from 'firebase/auth';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteToken } from '../../redux/SliceAuth';
+
 
 const Layout = () => {
   const { isOpen, openModal, closeModal } = useModal();
@@ -61,7 +62,7 @@ const Layout = () => {
             <WrapperLogo>
               <img
                 src={ukraine}
-                alt="Ukraine"
+                alt="Flag Ukraine"
                 width="28"
                 height="28"
               />
@@ -123,7 +124,7 @@ const Layout = () => {
         )}
       </Header>
       <main>
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={<Loaders />}>
           <Outlet />
         </Suspense>
       </main>

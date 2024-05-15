@@ -23,11 +23,7 @@ body{
   background-color: #fff;
   color: #121417;
 }
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+
 p,
 h1,
 h2,
@@ -38,7 +34,6 @@ h3 {
 ul {
   margin: 0;
   padding-left: 0;
-
   list-style: none;
 }
 

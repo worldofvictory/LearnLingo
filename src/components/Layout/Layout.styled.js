@@ -26,6 +26,7 @@ export const TitleLogo = styled.p`
   letter-spacing: -0.4px;
 `;
 
+export const Nav = styled.nav``;
 export const List = styled.ul`
   display: flex;
   align-items: center;
@@ -57,6 +58,7 @@ export const WrapperAuth = styled.ul`
 export const ButtonLogin = styled.button`
   cursor: pointer;
   font-family: 'Roboto', sans-serif;
+  color: black;
   font-size: 16px;
   font-weight: 700;
   line-height: 1.25;
@@ -103,4 +105,3 @@ export const ButtonRegister = styled.button`
     background-color: var( --hoverBt);
   }
 `;
-export const Nav = styled.nav``;

@@ -86,13 +86,11 @@ export const FormComponent = ({ languages }) => {
               <WrapperInput>
                 <input
                   type="text"
-                  id="name"
                   name="fullName"
                   onBlur={handleBlur}
                   placeholder="Full Name"
                   value={values.fullName}
                   onChange={handleChange}
-                  autoComplete="fullName"
                 />
                 {errors.fullName && touched.fullName ? (
                   <ErrorMessage>* {errors.fullName}</ErrorMessage>
@@ -100,7 +98,6 @@ export const FormComponent = ({ languages }) => {
               </WrapperInput>
               <WrapperInput>
                 <input
-                  id="email"
                   type="email"
                   name="email"
                   onBlur={handleBlur}
@@ -114,7 +111,6 @@ export const FormComponent = ({ languages }) => {
               </WrapperInput>
               <WrapperInput>
                 <TextMaskCustom
-                  id="tel"
                   type="tel"
                   name="number"
                   onBlur={handleBlur}
